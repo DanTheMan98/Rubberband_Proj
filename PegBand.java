@@ -67,7 +67,14 @@ public class PegBand
             if(connectionCount[i] > highestConCount)
                 highestConCount = i;
         }
-     } 
+     }
+    
+     public int[] randomPositions(int[] position, int[][] adjacencyList)
+     {
+         List<Integer> list = Arrays.asList(position);
+         Collections.shuffle(list);
+         return list.toArray(new int[list.size()]);
+     }
 
      public int compareCost(int origCost, int newCost)
      {
