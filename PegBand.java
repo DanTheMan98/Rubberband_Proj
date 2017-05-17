@@ -16,6 +16,30 @@ public class PegBand
         compareCost(originalCost, thisGraph.calculateCost())
         
     }
+    
+    //Create an array with the amount of connections of each peg, sorted.
+     public int[] createConnectionCount(int[] position, int[][] adjacencyList)
+    {
+        //Tracks number of connections for each post in position array.
+        int[] connectionCount = new int[position.length];
+        
+        //Set connection counts for each peg to zero.
+        for(int i = 0; i < connectionCount.length; i++)
+            connectionCount[i] = 0;
+
+        for(int i = 0; i < adjacencyList.length; i++)
+        {
+            for(int j = 0; j < adjacencyList[i].length; j++)
+            {
+                connectionCount[i]++;
+                connectionCount[j]++;
+            }
+        }
+        
+        return Arrays.sort(connectionCount);
+    }
+
+    
     //Calculate and return the total cost of the arrangement of posts.
     public int calculateCost(int[] position, int[][] adjacencyList)
     {
